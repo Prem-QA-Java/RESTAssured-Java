@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><myplex xmlns="http://carousel.myReco.myplex.tv/1" xmlns:ns2="http://parent.myReco.myplex.tv/1" xmlns:ns3="http://properties.myReco.myplex.tv/1">
+	<indexContent>
+		<project>
+			<projectId>43k-338-meB-dOG</projectId>
+			<projectName>Vodafone play dev</projectName>
+			<userId>38</userId>
+			<userName>vfplaydev@apalya.com</userName>
+			<tenantId>19</tenantId>
+			<tenantUID>1c941655-f1f4-4880-908e-f73b584e7fcd</tenantUID>
+		</project>
+		<carouselMaster>
+			<ns2:carouselMaster>
+				<ns2:carouselMasterId>500</ns2:carouselMasterId>
+				<ns2:carouselMasterName>MYPLEX</ns2:carouselMasterName>
+				<ns2:carouselMasterType>Because You Watched</ns2:carouselMasterType>
+			</ns2:carouselMaster>
+			<carousel>
+				<id>3528</id>
+				<carouselId>c9b3f02a-7694-4b1f-b54f-7e460f53d21a</carouselId>
+				<carouselName>Carousel for automation WLE</carouselName>
+				<carouselType>Because You Watched</carouselType>
+				<carouselStatus>new</carouselStatus>
+				<properties name="Carousel Properties" type="Properties">
+					<ns3:property id="1" name="display_name" type="text" value="Carousel for automation WLE"/>
+					<ns3:property id="10" name="start_date" type="date" value="1684108800"/>
+					<ns3:property id="11" name="expiry_date" type="date" value="1713312000"/>
+					<ns3:property id="5" name="carousel_Id" type="int" value="3528"/>
+					<ns3:property id="96987" name="ColdStart" type="text" value="Disable"/>
+					<ns3:property id="96986" name="CarouselType" type="text" value="Watch Latest Episodes"/>
+					<ns3:property id="96989" name="ChangedEntityTypeForBUW" type="text" value="WatchLatestEpisodes"/>
+					<ns3:property id="96990" name="PrioritizeOnAirShows" type="text" value="Disable"/>
+					<ns3:property id="96988" name="RecommendationEngine" type="text" value="MyReco"/>
+				</properties>
+			</carousel>
+		</carouselMaster>
+	</indexContent>
+</myplex>

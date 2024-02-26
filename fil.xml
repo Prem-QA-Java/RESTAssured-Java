@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><myplex xmlns="http://carousel.myReco.myplex.tv/1" xmlns:ns2="http://parent.myReco.myplex.tv/1" xmlns:ns3="http://properties.myReco.myplex.tv/1">
+	<indexContent>
+		<project>
+			<projectId>43k-338-meB-dOG</projectId>
+			<projectName>Vodafone play dev</projectName>
+			<userId>38</userId>
+			<userName>vfplaydev@apalya.com</userName>
+			<tenantId>19</tenantId>
+			<tenantUID>1c941655-f1f4-4880-908e-f73b584e7fcd</tenantUID>
+		</project>
+		<carouselMaster>
+			<ns2:carouselMaster>
+				<ns2:carouselMasterId>500</ns2:carouselMasterId>
+				<ns2:carouselMasterName>MYPLEX</ns2:carouselMasterName>
+				<ns2:carouselMasterType>Individual Personalization</ns2:carouselMasterType>
+			</ns2:carouselMaster>
+			<carousel>
+				<id>1787</id>
+				<carouselId>bfd3f1f7-c4af-4283-8ff4-d3e86c222735</carouselId>
+				<carouselName>QA_Testing23</carouselName>
+				<carouselType>Individual Personalization</carouselType>
+				<carouselStatus>new</carouselStatus>
+				<properties name="Carousel Properties" type="Properties">
+					
+					
+					<ns3:property id="1" name="display_name" type="text" value="QA_Testing23"/>
+					<ns3:property id="10" name="start_date" type="date" value="1605398400"/>
+					<ns3:property id="11" name="expiry_date" type="date" value="1606262400"/>
+					<ns3:property id="5" name="carousel_Id" type="int" value="1787"/>
+					<ns3:property id="96805" name="RelevanceParameters" type="text" value="Base Recommendations"/>
+					<ns3:property id="96806" name="MOUcutoff" type="text" value="20"/>
+					<ns3:property id="96808" name="Randomize" type="text" value="Disable"/>
+					<ns3:property id="96809" name="Batchsizeforshuffling" type="text" value="30"/>
+					<ns3:property id="96810" name="Removeseencontent" type="text" value="Enable"/>
+					<ns3:property id="96807" name="Reappearcriteria(days)" type="text" value="50"/>
+					<ns3:property id="96814" name="Variant" type="text" value="A"/>
+					<ns3:property id="96815" name="VariantWeightage" type="text" value="100"/>
+					<ns3:property id="96811" name="LanguagePreference" type="text" value="Implicit Language"/>
+					<ns3:property id="96817" name="PromotionsCount" type="text" value="2"/>
+					<ns3:property id="96816" name="PositionsOfPromotions" type="text" value="1,4"/>
+					<ns3:property id="96803" name="ColdStart" type="text" value="Enable"/>
+					<ns3:property id="96812" name="GenrePreference" type="text" value="No Genre"/>
+					<ns3:property id="96813" name="ActorPreference" type="text" value="No Actor"/>
+					<ns3:property id="96804" name="RecommendationEngine" type="text" value="MyReco"/>
+					<ns3:properties id="17800" name="ContentType" type="ContentType">
+						<ns3:property id="3033234" name="ContentType" type="text" value="live"/>
+						<ns3:property id="3033234" name="ContentType" type="text" value="live"/>
+					</ns3:properties>
+				</properties>
+			</carousel>
+		</carouselMaster>
+	</indexContent>
+</myplex>

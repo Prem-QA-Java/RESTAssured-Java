@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><myplex xmlns="http://carousel.myReco.myplex.tv/1" xmlns:ns2="http://parent.myReco.myplex.tv/1" xmlns:ns3="http://properties.myReco.myplex.tv/1">
+	<indexContent>
+		<project>
+			<projectId>43k-338-meB-dOG</projectId>
+			<projectName>Vodafone play dev</projectName>
+			<userId>38</userId>
+			<userName>vfplaydev@apalya.com</userName>
+			<tenantId>19</tenantId>
+			<tenantUID>1c941655-f1f4-4880-908e-f73b584e7fcd</tenantUID>
+		</project>
+		<carouselMaster>
+			<ns2:carouselMaster>
+				<ns2:carouselMasterId>500</ns2:carouselMasterId>
+				<ns2:carouselMasterName>MYPLEX</ns2:carouselMasterName>
+				<ns2:carouselMasterType>Custom Carousel</ns2:carouselMasterType>
+			</ns2:carouselMaster>
+			<carousel>
+				<id>3529</id>
+				<carouselId>0b1122f6-cdaf-4ebe-a43d-757dee735735</carouselId>
+				<carouselName>Created for automation</carouselName>
+				<carouselType>Custom Carousel</carouselType>
+				<carouselStatus>new</carouselStatus>
+				<properties name="Carousel Properties" type="Properties">
+
+					<ns3:property id="1" name="display_name" type="text" value="1"/>
+					<ns3:property id="10" name="start_date" type="date" value="1684108800"/>
+					<ns3:property id="11" name="expiry_date" type="date" value="1684108800"/>
+					<ns3:property id="5" name="carousel_Id" type="int" value="3529"/>
+					<ns3:property id="96991" name="NumberofContentsinCarousel" type="text" value="3"/>
+
+
+					
+					
+				<ns3:properties id="17800" name="promotionalPlaceHolders" type="promotionalPlaceHolders"><ns3:properties id="3033234" name="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="4"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="102227"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties><ns3:properties id="3033234" nmae="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="5"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="101644"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties></ns3:properties><ns3:properties id="17800" name="CustomContents" type="CustomContents"><ns3:properties id="3033234" nmae="content" type="CustomContents"><ns3:property id="4527" name="position" type="CustomContents" value="1"/><ns3:property id="54324" name="carouselId" type="CustomContents" value="1d57a535-d65c-4bcf-b8e9-6d1e2a70943e"/></ns3:properties><ns3:properties id="3033234" nmae="content" type="CustomContents"><ns3:property id="4527" name="position" type="CustomContents" value="2"/><ns3:property id="54324" name="carouselId" type="CustomContents" value="ca6a351a-1f55-41b7-8bbe-799803c80589"/></ns3:properties><ns3:properties id="3033234" nmae="content" type="CustomContents"><ns3:property id="4527" name="position" type="CustomContents" value="3"/><ns3:property id="54324" name="carouselId" type="CustomContents" value="ca6a351a-1f55-41b7-8bbe-799803c80589"/></ns3:properties></ns3:properties></properties>
+			</carousel>
+		</carouselMaster>
+	</indexContent>
+</myplex>

@@ -1,0 +1,21 @@
+{
+  "Carousel Title" : "Testing auto",
+  "carouselId" : false,
+  "Start Date" : "09/00/2020",
+  "End Date" : "09/01/2023",
+  "Content Type" : "movie",
+  "userProperties" : {
+    "State" : [ "A.P", "T.N" ],
+    "Country" : [ "India" ]
+  },
+  "optimizationParams" : {
+    "Reappear criteria (days)" : [ "5" ],
+    "Batch size for shuffling" : [ "30" ],
+    "Language Preference" : [ "Explicit Language" ],
+    "Remove seen content" : [ "Enable" ],
+    "Randomize" : [ "Enable" ]
+  },
+  "tagsBasedBlacklisting" : {
+    "Adult" : [ "All Users" ]
+  }
+}

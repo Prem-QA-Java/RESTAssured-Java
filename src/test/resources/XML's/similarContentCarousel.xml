@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><myplex xmlns="http://carousel.myReco.myplex.tv/1" xmlns:ns2="http://parent.myReco.myplex.tv/1" xmlns:ns3="http://properties.myReco.myplex.tv/1">
+	<indexContent>
+		<project>
+			<projectId>43k-338-meB-dOG</projectId>
+			<projectName>Vodafone play dev</projectName>
+			<userId>38</userId>
+			<userName>vfplaydev@apalya.com</userName>
+			<tenantId>19</tenantId>
+			<tenantUID>1c941655-f1f4-4880-908e-f73b584e7fcd</tenantUID>
+		</project>
+		<carouselMaster>
+			<ns2:carouselMaster>
+				<ns2:carouselMasterId>500</ns2:carouselMasterId>
+				<ns2:carouselMasterName>MYPLEX</ns2:carouselMasterName>
+				<ns2:carouselMasterType>Similar Content</ns2:carouselMasterType>
+			</ns2:carouselMaster>
+			<carousel>
+				<id>3526</id>
+				<carouselId>3180034e-e547-4e29-b96f-ef522cecffed</carouselId>
+				<carouselName>Carousel for automation similar</carouselName>
+				<carouselType>Similar Content</carouselType>
+				<carouselStatus>new</carouselStatus>
+				<properties name="Carousel Properties" type="Properties">
+					<ns3:properties id="2" name="ContentType" type="ContentType">
+						<ns3:property id="96914" name="ContentType" type="text" value="movie"/>
+					</ns3:properties>
+					<ns3:property id="1" name="display_name" type="text" value="Carousel for automation"/>
+					<ns3:property id="10" name="start_date" type="date" value="1684108800"/>
+					<ns3:property id="11" name="expiry_date" type="date" value="1723680000"/>
+					<ns3:property id="5" name="carousel_Id" type="int" value="3526"/>
+					<ns3:property id="96922" name="Randomize" type="text" value="Disable"/>
+					<ns3:property id="96923" name="Batchsizeforshuffling" type="text" value="30"/>
+					<ns3:property id="96924" name="Removeseencontent" type="text" value="Enable"/>
+					<ns3:property id="96921" name="Reappearcriteria(days)" type="text" value="90"/>
+					<ns3:property id="96925" name="Variant" type="text" value="A"/>
+					<ns3:property id="96926" name="VariantWeightage" type="text" value="100"/>
+					<ns3:property id="96920" name="ActorWeightage" type="text" value="2"/>
+					<ns3:property id="96917" name="GenreWeightage" type="text" value="1"/>
+					<ns3:property id="96918" name="YearofReleaseWeightage" type="text" value="100"/>
+					<ns3:property id="96919" name="LanguageWeightage" type="text" value="110"/>
+					<ns3:property id="96915" name="ColdStart" type="text" value="Disable"/>
+					<ns3:property id="96916" name="RecommendationEngine" type="text" value="MyReco"/>
+				<ns3:properties id="17800" name="promotionalPlaceHolders" type="promotionalPlaceHolders"><ns3:properties id="3033234" name="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="1"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="245689"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties><ns3:properties id="3033234" nmae="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="8"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="245624"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties><ns3:properties id="3033234" nmae="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="24"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="245460"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties></ns3:properties></properties>
+			</carousel>
+		</carouselMaster>
+	</indexContent>
+</myplex>

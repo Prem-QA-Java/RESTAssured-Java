@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extentreports>
+	<configuration>
+		<!--  report theme  -->
+		<!--  standard, dark  -->
+		<theme>standard</theme>
+		<!--  document encoding  -->
+		<!--  defaults to UTF-8  -->
+		<encoding>UTF-8</encoding>
+		<thumbnailForBase64>true</thumbnailForBase64>
+		<!--  protocol for script and stylesheets  -->
+		<!--  defaults to https  -->
+		<protocol>https</protocol>
+		<!--  title of the document  -->
+		<documentTitle>MyReco API</documentTitle>
+		<!--  report name - displayed at top-nav  -->
+		<reportName align="center">
+			<![CDATA[
+			<img src="https://www.yvs.video/assets/images/yvs-white.png" style="position:absolute;left:-150%;margin: -6%;height: 85%;width: 35%;"/>
+			<img src="https://paasqa-cms.myplex.com/platform_assets/images/apalya_logo.png" style="position: fixed;left: -39%;margin: 40%;width: 3%;"/>
+			<message>MyReco API Automation</message>
+			]]>
+ 		</reportName> 
+		<!-- timestamp format -->
+		<timeStampFormat>HH:mm:ss dd-MM-yyyy</timeStampFormat>
+		<!--  location of charts in the test view  -->
+		<!--  top, bottom  -->
+		<testViewChartLocation>bottom</testViewChartLocation>
+		<!--  custom javascript  -->
+		<scripts>
+			<![CDATA[ $(document).ready(function(){}
+			]]>
+		</scripts>
+		<!--  custom styles  -->
+		<styles>
+		<![CDATA[img{width:100px}]]>
+		</styles>
+		<!--<property name="logFilePath" value="C:\Users\Prem Sai P\git\MyReco-API\logs\Report Logs.log" />-->
+	</configuration>
+</extentreports>

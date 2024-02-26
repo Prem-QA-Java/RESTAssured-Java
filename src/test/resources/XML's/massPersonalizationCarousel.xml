@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><myplex xmlns="http://carousel.myReco.myplex.tv/1" xmlns:ns2="http://parent.myReco.myplex.tv/1" xmlns:ns3="http://properties.myReco.myplex.tv/1">
+	<indexContent>
+		<project>
+			<projectId>43k-338-meB-dOG</projectId>
+			<projectName>Vodafone play dev</projectName>
+			<userId>38</userId>
+			<userName>vfplaydev@apalya.com</userName>
+			<tenantId>19</tenantId>
+			<tenantUID>1c941655-f1f4-4880-908e-f73b584e7fcd</tenantUID>
+		</project>
+		<carouselMaster>
+			<ns2:carouselMaster>
+				<ns2:carouselMasterId>500</ns2:carouselMasterId>
+				<ns2:carouselMasterName>MYPLEX</ns2:carouselMasterName>
+				<ns2:carouselMasterType>Mass Personalization</ns2:carouselMasterType>
+			</ns2:carouselMaster>
+			<carousel>
+				<id>3525</id>
+				<carouselId>2bb95e3b-74fa-4896-a8d1-a2f1fa738cd3</carouselId>
+				<carouselName>Carousel for automation MP</carouselName>
+				<carouselType>Mass Personalization</carouselType>
+				<carouselStatus>new</carouselStatus>
+				<properties name="Carousel Properties" type="Properties">
+					<ns3:properties id="2" name="ContentType" type="ContentType">
+						<ns3:property id="96973" name="ContentType" type="text" value="movie"/>
+					</ns3:properties>
+					<ns3:property id="1" name="display_name" type="text" value="Carousel for automation MP"/>
+					<ns3:property id="10" name="start_date" type="date" value="1684108800"/>
+					<ns3:property id="11" name="expiry_date" type="date" value="1730851200"/>
+					<ns3:property id="5" name="carousel_Id" type="int" value="3525"/>
+					<ns3:property id="96978" name="Randomize" type="text" value="Disable"/>
+					<ns3:property id="96979" name="Batchsizeforshuffling" type="text" value="30"/>
+					<ns3:property id="96980" name="Removeseencontent" type="text" value="Enable"/>
+					<ns3:property id="96977" name="Reappearcriteria(days)" type="text" value="90"/>
+					<ns3:property id="96984" name="Variant" type="text" value="A"/>
+					<ns3:property id="96985" name="VariantWeightage" type="text" value="100"/>
+					<ns3:property id="96976" name="OrderBy" type="text" value="Streams"/>
+					<ns3:property id="96981" name="LanguagePreference" type="text" value="Explicit Language"/>
+					<ns3:property id="96974" name="ColdStart" type="text" value="Disable"/>
+					<ns3:property id="96982" name="GenrePreference" type="text" value="No Genre"/>
+					<ns3:property id="96983" name="ActorPreference" type="text" value="No Actor"/>
+					<ns3:property id="96975" name="RecommendationEngine" type="text" value="MyReco"/>
+					
+				<ns3:properties id="17800" name="promotionalPlaceHolders" type="promotionalPlaceHolders"><ns3:properties id="3033234" name="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="1"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="102227"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties><ns3:properties id="3033234" nmae="placeHolder" type="promotionalPlaceHolders"><ns3:property id="4527" name="position" type="promotionalPlaceHolders" value="3"/><ns3:property id="54324" name="contentId" type="promotionalPlaceHolders" value="101644"/><ns3:property id="58851" name="property" type="promotionalPlaceHolders" value="default"/><ns3:property id="63378" name="propertyValue" type="promotionalPlaceHolders" value="default"/><ns3:property id="67905" name="userSegmentRules" type="promotionalPlaceHolders"/></ns3:properties></ns3:properties></properties>
+			</carousel>
+		</carouselMaster>
+	</indexContent>
+</myplex>
