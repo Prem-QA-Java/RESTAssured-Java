@@ -1,6 +1,7 @@
 package utilities;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -38,7 +39,14 @@ public class excelReadAndWrite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		workbook.getSheetAt(0).getRow(row).getCell(coloumn).setCellValue(value);
+		workbook.getSheetAt(0).getRow(row).createCell(coloumn).setCellValue(value);
+		FileOutputStream out;
+		try {
+			out = new FileOutputStream(System.getProperty("user.dir")+filePath);
+			workbook.write(out);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static int lastRow() {

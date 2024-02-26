@@ -22,7 +22,7 @@ public class createUserSteps {
 
     @Given("Give already existing user mail in body")
     public void give_already_existing_user_mail_in_body() {
-
+    	
     }
 
     @Then("Vaild 400 and user already exists message.")
