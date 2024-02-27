@@ -105,6 +105,27 @@ public class apiHelper extends base{
 		return response;
 	}
 
+
+	public Response getRequestJson(String path, String bodyPath) {
+		RequestSpecification request = RestAssured.given();
+		request.header("Authorization", prop("authorization"));
+		
+		request.header("Content-Type", "application/json");
+		FileReader fr = null;
+		try {
+			fr = new FileReader(bodyPath);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		JSONTokener jt = new JSONTokener(fr);
+		JSONObject data = new JSONObject(jt);
+		request.body(data.toString());
+		response = request.get(path);
+		urlPrint(request);
+		response.prettyPrint();
+		return response;
+	}
+
 	/**
 	 * This is used from post call with body as JSON format file
 	 * 
@@ -379,6 +400,26 @@ public class apiHelper extends base{
 		return response;
 	}
 
+	public Response putRequestJson(String path, String bodyPath) {
+		RequestSpecification request = RestAssured.given();
+		request.header("Authorization", prop("authorization"));
+		
+		request.header("Content-Type", "application/json");
+		FileReader fr = null;
+		try {
+			fr = new FileReader(bodyPath);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		JSONTokener jt = new JSONTokener(fr);
+		JSONObject data = new JSONObject(jt);
+		request.body(data.toString());
+		response = request.put(path);
+		urlPrint(request);
+		response.prettyPrint();
+		return response;
+	}
+
 	/**
 	 * This is used from delete call with two path parameter
 	 * 
@@ -409,6 +450,26 @@ public class apiHelper extends base{
 		
 		response = request.pathParam("carousel_Id", Id).delete(path);
 		urlPrint(request);
+		return response;
+	}
+
+	public Response deleteRequestJson(String path, String bodyPath) {
+		RequestSpecification request = RestAssured.given();
+		request.header("Authorization", prop("authorization"));
+		
+		request.header("Content-Type", "application/json");
+		FileReader fr = null;
+		try {
+			fr = new FileReader(bodyPath);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		JSONTokener jt = new JSONTokener(fr);
+		JSONObject data = new JSONObject(jt);
+		request.body(data.toString());
+		response = request.delete(path);
+		urlPrint(request);
+		response.prettyPrint();
 		return response;
 	}
 }
