@@ -36,13 +36,8 @@ public class excelReadAndWrite {
 		try {
 			fis = new FileInputStream(System.getProperty("user.dir")+filePath);
 			workbook = new XSSFWorkbook(fis);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		workbook.getSheetAt(0).getRow(row).createCell(coloumn).setCellValue(value);
-		FileOutputStream out;
-		try {
-			out = new FileOutputStream(System.getProperty("user.dir")+filePath);
+			workbook.getSheetAt(0).getRow(row).createCell(coloumn).setCellValue(value);
+			FileOutputStream out = new FileOutputStream(System.getProperty("user.dir")+filePath);
 			workbook.write(out);
 		} catch (Exception e) {
 			e.printStackTrace();
