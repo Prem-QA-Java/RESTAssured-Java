@@ -1,13 +1,18 @@
-package calls;
+package stepDefinitions;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.asserts.SoftAssert;
 
+import io.restassured.path.xml.XmlPath;
+import io.restassured.path.xml.XmlPath.CompatibilityMode;
 import io.restassured.response.Response;
 import utilities.*;
 
-public class createUser extends base {
+public class deleteUser extends base {
 
+	Logger log = Logger.getLogger(getClass());
+	
 	apiHelper apiHelper = new apiHelper();
 	jsonReadAndWrite json = new jsonReadAndWrite();
 	variables variables = new variables();
@@ -25,11 +30,18 @@ public class createUser extends base {
 	public void c_User(String url) {
 		excelReadAndWrite.readExcel(userExcelFile);
 		for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
 			userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
 			userEmail = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 2);
 			userPassword = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 3);
 
+			log.info(this.getClass().getSimpleName());
+			
 			json.changeProperties(getClass().getSimpleName(),
 					new String[] { "firstName", "lastName", "email", "password" },
 					new String[] { userFirstName, userLastName, userEmail, userPassword });
@@ -44,6 +56,11 @@ public class createUser extends base {
 	public void reponse() {
 		excelReadAndWrite.readExcel(userExcelFile);
 		for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			if (Integer.valueOf(excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 6)) == 201) {
 				userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
 				userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
@@ -75,6 +92,11 @@ public class createUser extends base {
 	public void e_User(String url) {
 		excelReadAndWrite.readExcel(userExcelFile);
 		for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
 			userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
 			userEmail = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 2);
@@ -92,6 +114,11 @@ public class createUser extends base {
 		excelReadAndWrite.readExcel(userExcelFile);
 		if (method.equals("Get")) {
 			for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
 				userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
 				userEmail = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 2);
@@ -106,6 +133,11 @@ public class createUser extends base {
 			}
 		} else if (method.equals("Put")) {
 			for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
 				userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
 				userEmail = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 2);
@@ -120,6 +152,11 @@ public class createUser extends base {
 			}
 		} else if (method.equals("Delete")) {
 			for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
 				userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
 				userEmail = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 2);
@@ -144,11 +181,16 @@ public class createUser extends base {
 
 				String response = excelReadAndWrite.getDataFromEcxel(userExcelFile, i,
 						7);
-				JSONObject jsonObject = new JSONObject(response);
+				XmlPath htmlPath = new XmlPath(CompatibilityMode.HTML, response);
+				
+				sa.assertEquals("400", htmlPath.getString("html.head.title"));
 
 			} else if (Integer.valueOf(excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 8)) == 503) {
 				String response = excelReadAndWrite.getDataFromEcxel(userExcelFile, i,
 						7);
+				XmlPath htmlPath = new XmlPath(CompatibilityMode.HTML, response);
+				
+				sa.assertEquals("Application Error", htmlPath.getString("html.head.title"));
 			} else{
 				repo.prettyPrint();
 				System.out.println(Integer.valueOf(excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 6)));

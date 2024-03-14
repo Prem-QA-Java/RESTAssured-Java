@@ -3,10 +3,12 @@ package utilities;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class excelReadAndWrite {
+public class excelReadAndWrite extends base{
 	
 	static Workbook workbook;
 	static FileInputStream fis;
@@ -27,6 +29,7 @@ public class excelReadAndWrite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		workbook.getSheetAt(0).getRow(row).getCell(coloumn).setCellType(CellType.STRING);
 		return workbook.getSheetAt(0).getRow(row).getCell(coloumn).getStringCellValue();
 
 	}

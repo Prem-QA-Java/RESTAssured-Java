@@ -26,17 +26,14 @@ import io.restassured.response.Response;
 import io.restassured.specification.QueryableRequestSpecification;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.SpecificationQuerier;
-import runner.runner;
 
 public class base {
 
 	public RequestSpecification request = RestAssured.given();
 	Response response;
 	Logger logger = Logger.getLogger(getClass());
-	
+
 	QueryableRequestSpecification queryable;
-	
-	
 
 	@DataProvider(name = "project")
 	public Object[][] dp() {
@@ -178,17 +175,32 @@ public class base {
 	public void debug(String message) {
 		ExtentCucumberAdapter.getCurrentStep().log(Status.INFO, message);
 	}
-	
+
 	public void urlPrint(RequestSpecification request) {
 		queryable = SpecificationQuerier.query(request);
 		try {
-			logger.info("\nURL: " + URLDecoder.decode(queryable.getURI(), "UTF-8"));
-			info("\nURL: " + URLDecoder.decode(queryable.getURI(), "UTF-8"));
-//			logger.info(queryable.getMethod());
-//			logger.info(queryable.getBody());
+			logger.info("URL: " + URLDecoder.decode(queryable.getURI(), "UTF-8"));
+			info("URL: " + URLDecoder.decode(queryable.getURI(), "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void printCurl(RequestSpecification request) {
+		queryable = SpecificationQuerier.query(request);
+		String body = queryable.getBody();
+
+		StringBuilder curlCommand = new StringBuilder();
+
+		curlCommand.append("curl -X ").append(queryable.getMethod());
+		queryable.getHeaders().forEach((header) -> curlCommand.append(" -H \"").append(header.getName()).append(": ")
+				.append(header.getValue()).append("\""));
+
+		if (body != null && !body.isEmpty()) {
+			curlCommand.append(" -d '").append(body).append("'");
+		}
+		curlCommand.append(" ").append(queryable.getURI());
+		logger.info(curlCommand.toString());
 	}
 
 }

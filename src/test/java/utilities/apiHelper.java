@@ -6,9 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.net.URLDecoder;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -25,6 +27,7 @@ import io.restassured.specification.RequestSpecification;
 public class apiHelper extends base{
 	
 	Response response;
+	Logger logger = Logger.getLogger(getClass());
 
 	
 	public Response getRequest(String string, String string2) {
@@ -32,7 +35,7 @@ public class apiHelper extends base{
 		request.header("Authorization", prop("projectId"));
 		
 		response = request.get(string + string2);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -67,7 +70,7 @@ public class apiHelper extends base{
 		}
 
 		response = request.pathParam("carousel_Id", carousel_Id).pathParam("user_Id", user_Id).get(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 
 	}
@@ -101,7 +104,7 @@ public class apiHelper extends base{
 			request.param(key, value);
 		}
 		response = request.pathParam("carousel_Id", carousel_Id).get(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -121,11 +124,23 @@ public class apiHelper extends base{
 		JSONObject data = new JSONObject(jt);
 		request.body(data.toString());
 		response = request.get(path);
-		urlPrint(request);
-		response.prettyPrint();
+		printCurl(request);
+		logger.info(response.asPrettyString());
 		return response;
 	}
 
+	
+	public Response postRequestJson(String path) {
+		RequestSpecification request = RestAssured.given();
+		request.header("Authorization", prop("authorization"));
+		
+		request.header("Content-Type", "application/json");
+		response = request.post(path);
+		printCurl(request);
+		logger.info(response.asPrettyString());
+		return response;
+	}
+	
 	/**
 	 * This is used from post call with body as JSON format file
 	 * 
@@ -148,8 +163,8 @@ public class apiHelper extends base{
 		JSONObject data = new JSONObject(jt);
 		request.body(data.toString());
 		response = request.post(path);
-		urlPrint(request);
-		response.prettyPrint();
+		printCurl(request);
+		logger.info(response.asPrettyString());
 		return response;
 	}
 
@@ -174,7 +189,7 @@ public class apiHelper extends base{
 		String data = sb.toString();
 		request.body(data);
 		response = request.post(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -215,7 +230,7 @@ public class apiHelper extends base{
 			request.params(key, value);
 		}
 		response = request.post(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -255,7 +270,7 @@ public class apiHelper extends base{
 			request.params(key, value);
 		}
 		response = request.post(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 	
@@ -291,7 +306,7 @@ public class apiHelper extends base{
 		String data = stringBuild.toString();
 		request.body(data);
 		response = request.pathParam("project", projectId).post(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 	
@@ -324,7 +339,7 @@ public class apiHelper extends base{
 		String data = stringBuild.toString();
 		request.body(data);
 		response = request.pathParam("project", projectId).post(uri);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 	 
@@ -368,7 +383,7 @@ public class apiHelper extends base{
 			request.param(key, value);
 		}
 		response = request.pathParam("user_Id", Id).put(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -396,7 +411,7 @@ public class apiHelper extends base{
 		JSONObject data = new JSONObject(jt);
 		request.body(data);
 		response = request.pathParam("user_Id", Id).put(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -415,8 +430,8 @@ public class apiHelper extends base{
 		JSONObject data = new JSONObject(jt);
 		request.body(data.toString());
 		response = request.put(path);
-		urlPrint(request);
-		response.prettyPrint();
+		printCurl(request);
+		logger.info(response.asPrettyString());
 		return response;
 	}
 
@@ -433,7 +448,7 @@ public class apiHelper extends base{
 		request.header("Authorization", prop("projectId"));
 		
 		response = request.pathParam("carousel_Id", carousel_Id).pathParam("user_Id", user_Id).delete(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -449,7 +464,7 @@ public class apiHelper extends base{
 		request.header("Authorization", prop("projectId"));
 		
 		response = request.pathParam("carousel_Id", Id).delete(path);
-		urlPrint(request);
+		printCurl(request);
 		return response;
 	}
 
@@ -468,8 +483,8 @@ public class apiHelper extends base{
 		JSONObject data = new JSONObject(jt);
 		request.body(data.toString());
 		response = request.delete(path);
-		urlPrint(request);
-		response.prettyPrint();
+		printCurl(request);
+		logger.info(response.asPrettyString());
 		return response;
 	}
 }
