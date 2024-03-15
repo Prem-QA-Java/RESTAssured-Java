@@ -22,7 +22,7 @@ public class createUserSteps {
 
     @Given("Give already existing user mail in body")
     public void give_already_existing_user_mail_in_body() {
-    	createUser.e_User(uri.createUser);
+    	createUser.c_User(uri.createUser);
     }
 
     @Then("Vaild 400 and user already exists message.")
@@ -59,16 +59,16 @@ public class createUserSteps {
 
     @Then("Vaild the user vaildation fail response")
     public void vaild_the_user_vaildation_fail_response() {
-    	createUser.emptyBodyResponse();
+    	createUser.emptyBodyResponseAndWithOutHeadersResponse();
     }
 
     @Given("Request without headers")
     public void request_without_headers() {
-    	
+    	createUser.withOutHeaders(uri.createUser);
     }
 
     @Then("Vaild the response of request without headers.")
     public void vaild_the_response_of_request_without_headers() {
-
+    	createUser.emptyBodyResponseAndWithOutHeadersResponse();
     }
 }

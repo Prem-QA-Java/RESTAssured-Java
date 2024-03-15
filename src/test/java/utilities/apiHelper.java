@@ -30,9 +30,9 @@ public class apiHelper extends base{
 	Logger logger = Logger.getLogger(getClass());
 
 	
-	public Response getRequest(String string, String string2) {
+	public Response getRequest(String string, String token, String string2) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		response = request.get(string + string2);
 		printCurl(request);
@@ -50,9 +50,9 @@ public class apiHelper extends base{
 	 *                    "{\"startIndex\":1,\"count\":10,\"noCache\":true,\"preview\":true,\"allFields\":false}"
 	 * @return response of the call
 	 */
-	public Response getRequest(String path, String carousel_Id, String user_Id, String params) {
+	public Response getRequest(String path, String token, String carousel_Id, String user_Id, String params) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonNode = null;
@@ -85,9 +85,9 @@ public class apiHelper extends base{
 	 *                    "{\"startIndex\":1,\"count\":10,\"noCache\":true,\"preview\":true,\"allFields\":false}"
 	 * @return response of the call
 	 */
-	public Response getRequest(String path, String carousel_Id, String params) {
+	public Response getRequest(String path, String token, String carousel_Id, String params) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonNode = null;
@@ -109,9 +109,9 @@ public class apiHelper extends base{
 	}
 
 
-	public Response getRequestJson(String path, String bodyPath) {
+	public Response getRequestJson(String path, String token, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("authorization"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		request.header("Content-Type", "application/json");
 		FileReader fr = null;
@@ -130,11 +130,20 @@ public class apiHelper extends base{
 	}
 
 	
-	public Response postRequestJson(String path) {
+	public Response postRequestJson(String path, String token) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("authorization"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		request.header("Content-Type", "application/json");
+		response = request.post(path);
+		printCurl(request);
+		logger.info(response.asPrettyString());
+		return response;
+	}
+	
+	public Response postRequestJsonWithOutHeader(String path) {
+		RequestSpecification request = RestAssured.given();
+		
 		response = request.post(path);
 		printCurl(request);
 		logger.info(response.asPrettyString());
@@ -148,9 +157,9 @@ public class apiHelper extends base{
 	 * @param bodyPath
 	 * @return response of the call
 	 */
-	public Response postRequestJson(String path, String bodyPath) {
+	public Response postRequestJson(String path, String token, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("authorization"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		request.header("Content-Type", "application/json");
 		FileReader fr = null;
@@ -168,9 +177,9 @@ public class apiHelper extends base{
 		return response;
 	}
 
-	public Response postRequestXml(String path, String bodyPath) {
+	public Response postRequestXml(String path, String token, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		File fi = new File(bodyPath);
 		StringBuilder sb = null;
@@ -201,9 +210,9 @@ public class apiHelper extends base{
 	 * @param params
 	 * @return response of the call
 	 */
-	public Response postRequestJson(String path, String bodyPath, String params) {
+	public Response postRequestJson(String path, String token, String bodyPath, String params) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		File fi = new File(bodyPath);
 		FileReader fr = null;
@@ -235,9 +244,9 @@ public class apiHelper extends base{
 	}
 
 	
-	public Response postRequestXml(String path, String bodyPath, String params) {
+	public Response postRequestXml(String path, String token, String bodyPath, String params) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		File fi = new File(bodyPath);
 		StringBuilder stringBuild = null;
@@ -274,9 +283,9 @@ public class apiHelper extends base{
 		return response;
 	}
 	
-	public Response postRequestJsonContent(String path, String projectId, String bodyPath) {
+	public Response postRequestJsonContent(String path, String token, String projectId, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		request.header("Content-Type", "application/json");
 //		FileReader fr = null;
@@ -310,10 +319,10 @@ public class apiHelper extends base{
 		return response;
 	}
 	
-	public Response postRequestXmlContent(String uri, String projectId, String bodyPath) {
+	public Response postRequestXmlContent(String uri, String token, String projectId, String bodyPath) {
 		RequestSpecification request = RestAssured.given().config(RestAssuredConfig.newConfig()
 				.encoderConfig(new EncoderConfig().appendDefaultContentCharsetToContentTypeIfUndefined(false)));
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		File fi = new File(bodyPath);
 //		Reader read = null;
@@ -354,9 +363,9 @@ public class apiHelper extends base{
 	 * @param params
 	 * @return response of the call
 	 */
-	public Response putRequest(String path, String Id, String bodyPath, String params) {
+	public Response putRequest(String path, String token, String Id, String bodyPath, String params) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		File fi = new File(bodyPath);
 		FileReader fr = null;
@@ -396,9 +405,9 @@ public class apiHelper extends base{
 	 * @param bodyPath
 	 * @return response of the call
 	 */
-	public Response putRequest(String path, String Id, String bodyPath) {
+	public Response putRequest(String path, String token, String Id, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		File fi = new File(bodyPath);
 		FileReader fr = null;
@@ -415,9 +424,9 @@ public class apiHelper extends base{
 		return response;
 	}
 
-	public Response putRequestJson(String path, String bodyPath) {
+	public Response putRequestJson(String path, String token, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("authorization"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		request.header("Content-Type", "application/json");
 		FileReader fr = null;
@@ -443,9 +452,9 @@ public class apiHelper extends base{
 	 * @param user_Id
 	 * @return response of the call
 	 */
-	public Response deleteRequest(String path, String carousel_Id, String user_Id) {
+	public Response deleteRequest(String path, String token, String carousel_Id, String user_Id) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		response = request.pathParam("carousel_Id", carousel_Id).pathParam("user_Id", user_Id).delete(path);
 		printCurl(request);
@@ -459,18 +468,18 @@ public class apiHelper extends base{
 	 * @param Id
 	 * @return response of the call
 	 */
-	public Response deleteRequest(String path, String Id) {
+	public Response deleteRequest(String path, String token, String Id) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("projectId"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		response = request.pathParam("carousel_Id", Id).delete(path);
 		printCurl(request);
 		return response;
 	}
 
-	public Response deleteRequestJson(String path, String bodyPath) {
+	public Response deleteRequestJson(String path, String token, String bodyPath) {
 		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("authorization"));
+		request.header("Authorization", prop("authorization")+" "+token);
 		
 		request.header("Content-Type", "application/json");
 		FileReader fr = null;

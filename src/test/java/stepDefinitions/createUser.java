@@ -38,13 +38,16 @@ public class createUser extends apiHelper {
 			json.changeProperties(getClass().getSimpleName(),
 					new String[] { "firstName", "lastName", "email", "password" },
 					new String[] { userFirstName, userLastName, userEmail, userPassword });
-			repo = postRequestJson(url, json.body);
+			repo = postRequestJson(url, null, json.body);
 			if(repo.toString().contains("token")) {
 			excelReadAndWrite.setDataToExcel(userExcelFile, i, 4,
 					repo.then().extract().path("token").toString());
-			}
 			excelReadAndWrite.setDataToExcel(userExcelFile, i, 5, repo.asPrettyString());
 			excelReadAndWrite.setDataToExcel(userExcelFile, i, 6, String.valueOf(repo.statusCode()));
+			}
+			excelReadAndWrite.setDataToExcel(userExcelFile, i, 7, repo.asPrettyString());
+			excelReadAndWrite.setDataToExcel(userExcelFile, i, 8, String.valueOf(repo.statusCode()));
+			
 		}
 	}
 
@@ -77,23 +80,6 @@ public class createUser extends apiHelper {
 		sa.assertAll();
 	}
 
-	public void e_User(String url) {
-		excelReadAndWrite.readExcel(userExcelFile);
-		for (int i = 1; i <= excelReadAndWrite.lastRow(); i++) {
-			userFirstName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 0);
-			userLastName = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 1);
-			userEmail = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 2);
-			userPassword = excelReadAndWrite.getDataFromEcxel(userExcelFile, i, 3);
-
-			json.changeProperties(getClass().getSimpleName(),
-					new String[] { "firstName", "lastName", "email", "password" },
-					new String[] { userFirstName, userLastName, userEmail, userPassword });
-			repo = postRequestJson(url, json.body);
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 7, repo.asPrettyString());
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 8, String.valueOf(repo.statusCode()));
-		}
-	}
-
 	public void differentMetods(String url, String method) {
 		excelReadAndWrite.readExcel(userExcelFile);
 		if (method.equals("Get")) {
@@ -106,7 +92,7 @@ public class createUser extends apiHelper {
 				json.changeProperties(getClass().getSimpleName(),
 						new String[] { "firstName", "lastName", "email", "password" },
 						new String[] { userFirstName, userLastName, userEmail, userPassword });
-				repo = getRequestJson(url, json.body);
+				repo = getRequestJson(url, null, json.body);
 				excelReadAndWrite.setDataToExcel(userExcelFile, i, 9, repo.asPrettyString());
 				excelReadAndWrite.setDataToExcel(userExcelFile, i, 10, String.valueOf(repo.statusCode()));
 			}
@@ -120,7 +106,7 @@ public class createUser extends apiHelper {
 				json.changeProperties(getClass().getSimpleName(),
 						new String[] { "firstName", "lastName", "email", "password" },
 						new String[] { userFirstName, userLastName, userEmail, userPassword });
-				repo = putRequestJson(url, json.body);
+				repo = putRequestJson(url, null, json.body);
 				excelReadAndWrite.setDataToExcel(userExcelFile, i, 11, repo.asPrettyString());
 				excelReadAndWrite.setDataToExcel(userExcelFile, i, 12, String.valueOf(repo.statusCode()));
 			}
@@ -134,7 +120,7 @@ public class createUser extends apiHelper {
 				json.changeProperties(getClass().getSimpleName(),
 						new String[] { "firstName", "lastName", "email", "password" },
 						new String[] { userFirstName, userLastName, userEmail, userPassword });
-				repo = deleteRequestJson(url, json.body);
+				repo = deleteRequestJson(url, null, json.body);
 				excelReadAndWrite.setDataToExcel(userExcelFile, i, 13, repo.asPrettyString());
 				excelReadAndWrite.setDataToExcel(userExcelFile, i, 14, String.valueOf(repo.statusCode()));
 			}
@@ -166,10 +152,10 @@ public class createUser extends apiHelper {
 	}
 
 	public void emptyBody(String url) {
-		repo = postRequestJson(url);
+		repo = postRequestJson(url, null);
 	}
 	
-	public void emptyBodyResponse() {
+	public void emptyBodyResponseAndWithOutHeadersResponse() {
 		sa.assertEquals(repo.getStatusCode(), 400);
 		sa.assertEquals(repo.path("_message"), "User validation failed");
 		sa.assertEquals(repo.path("message"), "User validation failed: password: Path `password` is required., lastName: Path `lastName` is required., firstName: Path `firstName` is required.");
@@ -197,6 +183,11 @@ public class createUser extends apiHelper {
 		sa.assertEquals(repo.path("errors.firstName.properties.type"), "required");
 		sa.assertEquals(repo.path("errors.firstName.properties.path"), "firstName");
 		sa.assertAll();
+	}
+
+	public void withOutHeaders(String url) {
+		repo = postRequestJsonWithOutHeader(url);
+		
 	}
 
 }
