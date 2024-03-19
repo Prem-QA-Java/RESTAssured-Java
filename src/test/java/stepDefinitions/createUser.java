@@ -39,15 +39,15 @@ public class createUser extends apiHelper {
 					new String[] { "firstName", "lastName", "email", "password" },
 					new String[] { userFirstName, userLastName, userEmail, userPassword });
 			repo = postRequestJson(url, null, json.body);
-			if(repo.toString().contains("token")) {
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 4,
+			if(repo.asPrettyString().contains("token")) {
+				excelReadAndWrite.setDataToExcel(userExcelFile, i, 4,
 					repo.then().extract().path("token").toString());
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 5, repo.asPrettyString());
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 6, String.valueOf(repo.statusCode()));
+				excelReadAndWrite.setDataToExcel(userExcelFile, i, 5, repo.asPrettyString());
+				excelReadAndWrite.setDataToExcel(userExcelFile, i, 6, String.valueOf(repo.statusCode()));
+			} else {
+				excelReadAndWrite.setDataToExcel(userExcelFile, i, 7, repo.asPrettyString());
+				excelReadAndWrite.setDataToExcel(userExcelFile, i, 8, String.valueOf(repo.statusCode()));
 			}
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 7, repo.asPrettyString());
-			excelReadAndWrite.setDataToExcel(userExcelFile, i, 8, String.valueOf(repo.statusCode()));
-			
 		}
 	}
 

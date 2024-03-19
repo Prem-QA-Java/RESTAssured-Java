@@ -13,6 +13,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -30,11 +31,20 @@ public class apiHelper extends base{
 	Logger logger = Logger.getLogger(getClass());
 
 	
-	public Response getRequest(String string, String token, String string2) {
+	public Response getRequest(String url, String token) {
 		RequestSpecification request = RestAssured.given();
 		request.header("Authorization", prop("authorization")+" "+token);
 		
-		response = request.get(string + string2);
+		response = request.get(url);
+		printCurl(request);
+		return response;
+	}
+	
+	public Response getRequest(String url, String token, String string2) {
+		RequestSpecification request = RestAssured.given();
+		request.header("Authorization", prop("authorization")+" "+token);
+		
+		response = request.get(url + string2);
 		printCurl(request);
 		return response;
 	}
@@ -445,34 +455,16 @@ public class apiHelper extends base{
 	}
 
 	/**
-	 * This is used from delete call with two path parameter
-	 * 
-	 * @param path
-	 * @param carousel_Id
-	 * @param user_Id
-	 * @return response of the call
-	 */
-	public Response deleteRequest(String path, String token, String carousel_Id, String user_Id) {
-		RequestSpecification request = RestAssured.given();
-		request.header("Authorization", prop("authorization")+" "+token);
-		
-		response = request.pathParam("carousel_Id", carousel_Id).pathParam("user_Id", user_Id).delete(path);
-		printCurl(request);
-		return response;
-	}
-
-	/**
 	 * This is used from delete call with one path parameter
 	 * 
 	 * @param path
-	 * @param Id
 	 * @return response of the call
 	 */
-	public Response deleteRequest(String path, String token, String Id) {
+	public Response deleteRequest(String path, String token) {
 		RequestSpecification request = RestAssured.given();
 		request.header("Authorization", prop("authorization")+" "+token);
 		
-		response = request.pathParam("carousel_Id", Id).delete(path);
+		response = request.delete(path);
 		printCurl(request);
 		return response;
 	}
@@ -492,6 +484,14 @@ public class apiHelper extends base{
 		JSONObject data = new JSONObject(jt);
 		request.body(data.toString());
 		response = request.delete(path);
+		printCurl(request);
+		logger.info(response.asPrettyString());
+		return response;
+	}
+	
+	public Response deleteRequestWithOutHeader(String url) {
+		RequestSpecification request = RestAssured.given();
+		response = request.delete(url);
 		printCurl(request);
 		logger.info(response.asPrettyString());
 		return response;
