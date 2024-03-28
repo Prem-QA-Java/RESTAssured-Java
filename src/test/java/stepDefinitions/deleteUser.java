@@ -13,10 +13,6 @@ public class deleteUser extends apiHelper {
 
 	Logger log = Logger.getLogger(getClass());
 
-	apiHelper apiHelper = new apiHelper();
-	jsonReadAndWrite json = new jsonReadAndWrite();
-	variables variables = new variables();
-
 	Response repo;
 	SoftAssert sa = new SoftAssert();
 
