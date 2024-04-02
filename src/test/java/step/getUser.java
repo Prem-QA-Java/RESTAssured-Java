@@ -1,4 +1,4 @@
-package stepDefinitions;
+package step;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;

@@ -1,9 +1,9 @@
-package steps;
+package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import stepDefinitions.getUser;
+import step.getUser;
 import utilities.uri;
 
 public class getUserSteps extends getUser{

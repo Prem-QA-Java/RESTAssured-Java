@@ -1,9 +1,9 @@
-package steps;
+package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import stepDefinitions.deleteUser;
+import step.deleteUser;
 import utilities.uri;
 
 public class deleteUserSteps extends deleteUser{
