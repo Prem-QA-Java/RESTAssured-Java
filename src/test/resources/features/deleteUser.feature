@@ -2,8 +2,7 @@ Feature: Delete User
   Checking all the secnarios in delete user api
 
   Scenario: Delete newly created user
-    Given Give already exists user tokens
-    Then Get the token from excel and delete user
+    Given Already exists user tokens in excel and taken then to delete user
     And Vailed 200 response
     And Try to get the user
 

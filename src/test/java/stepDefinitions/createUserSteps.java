@@ -1,8 +1,8 @@
-package steps;
+package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import stepDefinitions.createUser;
+import step.createUser;
 import utilities.uri;
 
 public class createUserSteps {
